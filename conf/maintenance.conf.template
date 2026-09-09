@@ -1,0 +1,14 @@
+server {
+    listen ${PORT};
+
+    error_page ${RESPONSE_CODE} /maintenance.html;
+
+    location / {
+        return ${RESPONSE_CODE};
+    }
+
+    location = /maintenance.html {
+        internal;
+        root /usr/share/nginx/html;
+    }
+}
