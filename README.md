@@ -107,6 +107,23 @@ services:
         - traefik.http.services.myapp.loadbalancer.server.port=8080
 ```
 
+CI
+--
+
+Le build/push de l'image passe par GitHub Actions ([.github/workflows/build.yml](.github/workflows/build.yml)),
+via Docker Build Cloud (driver `cloud`, builder `kibatic/kibatic`) plutôt qu'un build local — le
+paquet `docker-buildx-plugin` de Docker CE sur Linux n'embarque pas ce driver, seul Docker
+Desktop ou un binaire buildx dédié le permettent en local.
+
+À configurer une fois dans les paramètres du repo GitHub (`Settings > Secrets and variables >
+Actions`) :
+
+| Type     | Nom                   | Valeur                                              |
+|----------|-----------------------|------------------------------------------------------|
+| Variable | `DOCKER_ACCOUNT`      | `kibatic` (organisation Docker Hub)                   |
+| Variable | `CLOUD_BUILDER_NAME`  | `kibatic` (nom du builder Docker Build Cloud)         |
+| Secret   | `DOCKER_ACCESS_TOKEN` | Access token Docker Hub avec droit push sur `kibatic` |
+
 Notes
 -----
 
