@@ -120,11 +120,13 @@ Desktop ou un binaire buildx dédié le permettent en local.
 À configurer une fois dans les paramètres du repo GitHub (`Settings > Secrets and variables >
 Actions`) :
 
-| Type     | Nom                   | Valeur                                              |
-|----------|-----------------------|------------------------------------------------------|
-| Variable | `DOCKER_ACCOUNT`      | `kibatic` (organisation Docker Hub)                   |
-| Variable | `CLOUD_BUILDER_NAME`  | `kibatic` (nom du builder Docker Build Cloud)         |
-| Secret   | `DOCKER_ACCESS_TOKEN` | Access token Docker Hub avec droit push sur `kibatic` |
+| Type     | Nom           | Valeur                                                                        |
+|----------|---------------|--------------------------------------------------------------------------------|
+| Variable | `DOCKER_USER` | `kibatic` (organisation Docker Hub)                                           |
+| Secret   | `DOCKER_PAT`  | Access token Docker Hub avec scope `Read & Write` sur `kibatic/failover`, et  |
+|          |               | scope `Cloud Connect` sur l'organisation `kibatic` (accès au builder Cloud)   |
+
+Le builder Docker Build Cloud (`kibatic/kibatic`) est actuellement en dur dans le workflow.
 
 Notes
 -----
