@@ -38,7 +38,7 @@ Variables d'environnement
 
 | Variable                 | Défaut                        | Description                                    |
 |---------------------------|-------------------------------|-------------------------------------------------|
-| `PORT`                    | `8080`                        | Port d'écoute du conteneur                       |
+| `PORT`                    | `80`                           | Port d'écoute du conteneur                       |
 | `UPSTREAM_HOST`           | `web`                          | Hôte du service à mettre devant                  |
 | `UPSTREAM_PORT`           | `80`                           | Port du service à mettre devant                  |
 | `HEALTH_PATH`              | `/`                            | Chemin sondé pour le healthcheck                 |
@@ -106,7 +106,7 @@ services:
         - traefik.enable=true
         - traefik.docker.network=traefik-public
         - traefik.http.routers.myapp.rule=Host(`example.com`)
-        - traefik.http.services.myapp.loadbalancer.server.port=8080
+        - traefik.http.services.myapp.loadbalancer.server.port=80
 ```
 
 CI

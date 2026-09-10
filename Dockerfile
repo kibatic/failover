@@ -13,7 +13,7 @@ COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 RUN chmod +x /usr/local/bin/healthcheck.sh /usr/local/bin/docker-entrypoint.sh && \
     mkdir -p /etc/nginx/available
 
-ENV PORT=8080 \
+ENV PORT=80 \
     UPSTREAM_HOST=web \
     UPSTREAM_PORT=80 \
     HEALTH_PATH=/ \
@@ -29,6 +29,6 @@ ENV PORT=8080 \
     THEME=Light \
     LINK_COLOR="#dc8100"
 
-EXPOSE 8080
+EXPOSE 80
 
 ENTRYPOINT ["docker-entrypoint.sh"]

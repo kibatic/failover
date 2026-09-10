@@ -3,7 +3,7 @@ services:
   failover:
     build: .
     ports:
-      - "18082:8080"
+      - "18082:80"
     environment:
       UPSTREAM_HOST: web
       UPSTREAM_PORT: "80"
