@@ -1,6 +1,8 @@
 failover
 ========
 
+[![Docker Hub Build](https://github.com/kibatic/failover/actions/workflows/build.yml/badge.svg)](https://github.com/kibatic/failover/actions/workflows/build.yml)
+
 *reverse proxy nginx avec bascule automatique vers une page de maintenance*
 
 Ce conteneur se place devant un service HTTP (`UPSTREAM_HOST`/`UPSTREAM_PORT`). Tant que
