@@ -4,7 +4,7 @@ LABEL maintainer="Kibatic"
 
 RUN apk add --no-cache curl
 
-COPY html/index.html.template /etc/nginx/html-templates/index.html.template
+COPY html/index.template.html /etc/nginx/html-templates/index.template.html
 COPY conf/proxy.conf.template /etc/nginx/templates-src/proxy.conf.template
 COPY conf/maintenance.conf.template /etc/nginx/templates-src/maintenance.conf.template
 COPY healthcheck.sh /usr/local/bin/healthcheck.sh

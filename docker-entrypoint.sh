@@ -10,7 +10,7 @@ rm -f "$CONF_DIR"/*.conf
 
 # Page de maintenance : rendue une seule fois, elle ne change pas en cours de route.
 envsubst '${TITLE} ${HEADLINE} ${MESSAGE} ${TEAM_NAME} ${THEME} ${LINK_COLOR}' \
-    < /etc/nginx/html-templates/index.html.template \
+    < /etc/nginx/html-templates/index.template.html \
     > /usr/share/nginx/html/maintenance.html
 
 # Les deux confs possibles (proxy vers l'upstream / page de maintenance locale).

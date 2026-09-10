@@ -21,3 +21,10 @@ start-web: ## [host] relève web
 
 curl: ## [host] interroge le failover (voir la bascule proxy/maintenance)
 	@curl -s -o /dev/null -w "http_code=%{http_code}\n" http://localhost:18082/
+
+preview: ## [host] preview live de html/index.template.html (via docker, rien à installer)
+	docker run --rm -it \
+		-p 3010:3000 \
+		-v $(PWD)/html:/app/html:ro \
+		-v $(PWD)/scripts:/app/scripts:ro \
+		node:alpine node /app/scripts/preview.js
